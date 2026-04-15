@@ -1,0 +1,42 @@
+{
+  "home": {
+    "element": {
+      "type": "list",
+      "elements": [
+        {
+          "type": "alert",
+          "title": "Deploy AI Models Test",
+          "message": "Use this to collect fitbit data",
+          "icon": "/assets/home_instructions.png"
+        },
+        {
+          "type": "goals"
+        }
+      ]
+    }
+  },
+  "devices": [
+    {
+      "type": "Fitbit",
+      "channel": "Api",
+      "path": "https://api.fitbit.com/1/user/-",
+      "endpoints": [
+        {
+          "path": "activities",
+          "days": 1,
+          "writesdatum": true,
+          "goals": [
+            {
+              "id": "percentile_goal",
+              "type": "percentile",
+              "show-loading": true,
+              "field": "steps",
+              "days": 7,
+              "percentile": 0.6
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
